@@ -17,11 +17,43 @@ body {
     max-width: 400px;
 }
 
-/* TODO: Add styles for labels, inputs, buttons, and output text */
 h1 {
     font-size: 2.2em;
     margin-bottom: 20px;
     color: #4a4a4a; /* Header color */
 }
 
-/* Add more styles here as needed */
+label {
+    margin: 10px 0;
+    font-size: lem;
+}
+
+input[type="number"] {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 60px;
+    font-size: 1em;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#passwordOutput {
+    font-size: 1.2em;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
