@@ -57,3 +57,34 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
 }
+}
+
+input[type="number"] {
+    margin-bottom: 15px;
+    padding: 8px;
+    width: 60px;
+    font-size: 1em;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#passwordOutput {
+    font-size: 1.2em;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
