@@ -1,62 +1,35 @@
-const getRandomChar = (charset) => {
-    const randomIndex = Math.floor(Math.random() * charset.length);
-    return charset[randomIndex];
-};
+// TODO: Implement the password generation logic based on user input
 
-const generatePassword = (length, options) => {
+export const generatePassword = (length, options) => {
+    // Character sets for password generation
     const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowercase = "abcdefghijklmnopqrstuvwxyz";
     const numbers = "0123456789";
     const specialChars = "!@#$%^&*()";
 
-    let availableChars = '';
+    // TODO: Create a variable for the character set based on selected options
+    let PasswordVariable='';
+    if (options.includeUppercase) PasswordVariable += uppercase;
+    if (options.includeLowercase) PasswordVariable += lowercase;
+    if (options.includeNumbers) PasswordVariable += numbers;
+    if (options.includeSpecialChars) PasswordVariable += specialChars;
+
+    if (PasswordVariable === '') {
+        throw new Error('At least one character type must be selected.');
+    }
+
+    if (length < 8 || length > 128) {
+        alert ('Password Terlalu Sedikit atau Banyak');
+        return '';
+    }
+    
+    // TODO: Generate the password based on the selected criteria
     let password = '';
-
-    if (options.includeUppercase) availableChars += uppercase;
-    if (options.includeLowercase) availableChars += lowercase;
-    if (options.includeNumbers) availableChars += numbers;
-    if (options.includeSpecialChars) availableChars += specialChars;
-
-    if (!availableChars.length) {
-        return "Pilih minimal satu kriteria!";
+    for (let i = 0; i < length; i+=1) {
+        const randomVariable = Math.floor(Math.random() * PasswordVariable.length);
+        password += PasswordVariable[randomVariable];
     }
-
-    for (let i = 0; i < length; i++) {
-        password += getRandomChar(availableChars);
-    }
-
     return password;
 };
 
-const copyToClipboard = (text) => {
-    const tempInput = document.createElement('input');
-    document.body.appendChild(tempInput);
-    tempInput.value = text;
-    tempInput.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempInput);
-    alert('Password telah disalin ke clipboard!');
-};
-
-document.getElementById('generateBtn').addEventListener('click', () => {
-    const length = document.getElementById('length').value;
-    const options = {
-        includeUppercase: document.getElementById('includeUppercase').checked,
-        includeLowercase: document.getElementById('includeLowercase').checked,
-        includeNumbers: document.getElementById('includeNumbers').checked,
-        includeSpecialChars: document.getElementById('includeSpecialChars').checked,
-    };
-
-    const password = generatePassword(length, options);
-    document.getElementById('passwordOutput').innerText = password;
-});
-
-// Event listener untuk tombol copy
-document.getElementById('copyBtn').addEventListener('click', () => {
-    const password = document.getElementById('passwordOutput').innerText;
-    if (password) {
-        copyToClipboard(password);
-    } else {
-        alert('Tidak ada password untuk disalin.');
-    }
-});
+// TODO: Add event listener to the button to call generatePassword and display the output
